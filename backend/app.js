@@ -3,8 +3,10 @@ const express = require('express');
 // creation 
 const app = express();
 
-app.use(express.json());  // ou body parser , on intercepte toutes les requetes json
-
+app.use(express.json());        // ou body parser , on intercepte toutes les requetes json
+app.use(express.urlencoded({    // pour version 4.16.0 et +
+    extended: true
+  }));
 
 //------------------------- mongoDB ---------------------------------
 const mongoose = require('mongoose');
@@ -28,7 +30,8 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use(bodyParser.json());   // body parser
+//app.use(bodyParser.json());   // body parser deprecated
+
 
 app.use('/api/stuff',stuffRoutes);
 

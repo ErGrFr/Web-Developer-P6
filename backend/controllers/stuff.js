@@ -1,6 +1,6 @@
 // in controllers/stuff.js
 
-const Thing = require('../models/thing');
+const Thing = require('../models/sauce');
 
 exports.createThing = (req, res, next) => {
   const thing = new Thing({
